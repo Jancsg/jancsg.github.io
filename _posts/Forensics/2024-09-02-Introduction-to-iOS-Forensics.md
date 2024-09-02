@@ -1,5 +1,6 @@
 ---
 title: "Introduction to iOS Forensics"
+date: 2024-09-02 10:00:00
 classes: wide
 header:
   teaser: /assets/images/Introduction-to-iOS-Forensics/logo.png
