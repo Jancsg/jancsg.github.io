@@ -20,3 +20,11 @@ toc_sticky: true
 toc_label: "On This Blog"
 toc_icon: "biohazard"
 ---
+# Intro
+
+# Architecture 
+
+# Jailbreaking 
+
+# Adquisition 
+
