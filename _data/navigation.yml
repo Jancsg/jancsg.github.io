@@ -1,12 +1,10 @@
 # main links
 main:
-  - title: "JanCSG"
-    url: /
   - title: "Forensics"
     url: /categories/#Forensics
   - title: "Malware"
     url: /categories/#Malware
   - title: "Pen-Testing"
     url: /categories/#Pen-Testing
-  - title: "All"
+  - title: "All Tags"
     url: /tags
