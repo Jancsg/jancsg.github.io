@@ -1,14 +1,14 @@
 ---
-title: "Introduction to iOS Forensics"
+title: "iOS Jailbreak"
 date: 2024-09-02 10:00:00
 classes: wide
 header:
-  teaser: /assets/images/Introduction-to-iOS-Forensics/logo.png
-  overlay_image: /assets/images/Introduction-to-iOS-Forensics/logo.png
+  teaser: /assets/images/ios-jailbreack/logo.png
+  overlay_image: /assets/images/ios-jailbreak/logo.png
   overlay_filter: 0.5
 ribbon: DarkSlateGray
-excerpt: "Review of all you need to start on iOS Forensics"
-description: "Review of all you need to start on iOS Forensics"
+excerpt: "A deep dive into iOS jailbreaking"
+description: "A deep dive into iOS jailbreaking"
 categories:
   - Forensics
 tags:
@@ -21,11 +21,17 @@ toc_sticky: true
 toc_label: "On This Blog"
 toc_icon: "biohazard"
 ---
-# Intro
+# Introduction
 
-# Architecture 
+# History 
 
-# Jailbreaking 
+# Types 
 
-# Adquisition 
+# Tools
+
+# Exploits
+
+# Resources
+
+# Reference
 
