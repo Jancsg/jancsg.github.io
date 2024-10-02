@@ -11,6 +11,7 @@ excerpt: "A deep dive into iOS jailbreaking"
 description: "A deep dive into iOS jailbreaking"
 categories:
   - Forensics
+  - Mobile
 tags:
   - iOS
   - Jailbreak
