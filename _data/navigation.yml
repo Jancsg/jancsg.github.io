@@ -4,6 +4,8 @@ main:
     url: /categories/#Forensics
   - title: "Malware"
     url: /categories/#Malware
+  - title: "Mobile"
+    url: /categories/#Malware
   - title: "Pen-Testing"
     url: /categories/#Pen-Testing
   - title: "All Tags"
