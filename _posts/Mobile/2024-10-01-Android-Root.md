@@ -7,8 +7,8 @@ header:
   overlay_image: /assets/images/android-root/logo.png
   overlay_filter: 0.5
 ribbon: 
-excerpt: "Exploring the complexity of rooting on Android"
-description: "Exploring the complexity of rooting on Android"
+excerpt: "Exploring the complexity of rooting your Android device"
+description: "Exploring the complexity of rooting your Android device"
 categories:
   - Forensics
   - Mobile
