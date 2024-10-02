@@ -1,6 +1,6 @@
 ---
 title: "Frida - A dynamic binary instrumentation toolkit"
-date: 2024-10-02 10:00:00
+date: 2024-10-01 10:00:00
 classes: wide
 header:
   teaser: /assets/images/SSL-pinning-bypass/logo.png
