@@ -6,7 +6,7 @@ header:
   teaser: /assets/images/Introduction-to-iOS-Forensics/logo.png
   overlay_image: /assets/images/Introduction-to-iOS-Forensics/logo.png
   overlay_filter: 0.5
-ribbon: DarkSlateGray
+ribbon: 
 excerpt: "Review of all you need to start on iOS Forensics"
 description: "Review of all you need to start on iOS Forensics"
 categories:
@@ -16,16 +16,32 @@ tags:
   - Jailbreak
   - Checkm8
   - Exploit
+  - IPA
+  - iOS Security
+  - iOS Filesystem
+  - iOS Secure Boot Chain
+  - iOS backup
 toc: true
 toc_sticky: true
 toc_label: "On This Blog"
 toc_icon: "biohazard"
 ---
-# Intro
+# Introduction
 
-# Architecture 
+# iOS Filesystem 
+## Partitions
 
-# Jailbreaking 
+# iOS Security
+## iOS Security Model
+## iOS Secure Boot Chain
+## iOS Application Security 
+### Signing
+### SandBoxing
 
-# Adquisition 
+# Adquisition
+## Data collection
+## Backup
 
+# Resources
+
+# Tools
