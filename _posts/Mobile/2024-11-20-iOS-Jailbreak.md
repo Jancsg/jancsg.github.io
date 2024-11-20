@@ -1,14 +1,14 @@
 ---
 title: "iOS Jailbreak"
-date: 2024-11-20 10:00:00
+date: 2024-11-20 00:00:00
 classes: wide
 header:
-  teaser: /assets/images/ios-jailbreack/1.png
+  teaser: /assets/images/ios-jailbreak/1.png
   overlay_image: /assets/images/ios-jailbreak/1.png
   overlay_filter: 0.5
 ribbon: DarkSlateGray
 excerpt: "Unlocking the Full Potential of Your Apple Device"
-description: "Unlocking the Full Potential of Your Apple Device"
+description: "A comprehensive guide to iOS Jailbreaking, exploring tools like Checkm8 and jailbreak exploits to unlock your Apple device's potential."
 categories:
   - Forensics
   - Mobile
