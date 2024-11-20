@@ -3,8 +3,8 @@ title: "iOS Jailbreak"
 date: 2024-11-20 10:00:00
 classes: wide
 header:
-  teaser: /assets/images/ios-jailbreack/logo.png
-  overlay_image: /assets/images/ios-jailbreak/logo.png
+  teaser: /assets/images/ios-jailbreack/1.png
+  overlay_image: /assets/images/ios-jailbreak/1.png
   overlay_filter: 0.5
 ribbon: DarkSlateGray
 excerpt: "Unlocking the Full Potential of Your Apple Device"
