@@ -89,8 +89,8 @@ checkm8 targets a **use-after-free vulnerability** in the USB stack of Apple's S
 Here's what happens at a high level:
 
 1. When a device enters DFU mode, the SecureROM allocates a global I/O buffer (~2KB) and creates a USB interface to handle incoming data transfers.
-2. The USB control transfer handler processes `GET_DESCRIPTOR` requests to exchange device information with the host.
-3. The vulnerability: when you initiate a USB transfer and then **abort it at precisely the right moment** (by triggering a USB reset mid-transaction), the DFU code frees its internal request structures... but **keeps pointers to the freed memory**. Classic use-after-free.
+2. The USB control transfer handler processes incoming control requests as part of the DFU protocol.
+3. The vulnerability: when you initiate a USB control transfer and then **abort it at precisely the right moment** (by triggering a USB reset mid-transaction), the DFU code frees its internal request structures... but **keeps pointers to the freed memory**. Classic use-after-free.
 
 The result: the next time DFU processes a USB request, it follows those dangling pointers into memory that you now control.
 
@@ -115,7 +115,7 @@ Every A5 through A11 device ever manufactured — and every one that will ever e
 
 # checkra1n: From Exploit to Jailbreak
 
-checkm8 is just the exploit — raw code execution in the bootrom. **checkra1n** is the jailbreak tool built on top of it, developed by a team led by **Luca Todesco** (qwertyoruiop) and first released in November 2019.
+checkm8 is just the exploit — raw code execution in the bootrom. **checkra1n** is the jailbreak tool built on top of it, developed by a large collaborative team of security researchers — including **Luca Todesco** (qwertyoruiop), **Siguza**, **axi0mX**, **Sam Bingner**, **argp**, **littlelailo**, and many others — and first released in November 2019.
 
 Here's what actually happens when you click "Start" in checkra1n.
 
@@ -138,7 +138,7 @@ This is where checkra1n differs fundamentally from older jailbreaks like redsn0w
 PongoOS runs in the gap between iBoot and the iOS kernel. Think of it as a tiny OS that takes over before iOS gets a chance to start. It includes:
 
 - **A task scheduler** with preemption and interrupt handling
-- **A virtual memory system** with physical memory management
+- **Physical memory management** with allocation and mapping primitives
 - **Device drivers** for USB, display (framebuffer), UART/serial, and the AES crypto engine
 - **An interactive shell** accessible via USB (using the `pongoterm` client)
 - **A module loading system** for custom extensions

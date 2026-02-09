@@ -61,18 +61,20 @@ Every patch below uses this mechanism. Let's go through them.
 
 # Patch 1: AMFI Trustcache Bypass
 
-**What it targets**: Apple Mobile File Integrity (AMFI) maintains a **trust cache** — a built-in list of SHA-256 hashes of Apple binaries. When a binary is about to execute, AMFI checks if its hash is in the trust cache. If it is, the binary is considered trusted and signature validation is skipped.
+**What it targets**: Apple Mobile File Integrity (AMFI) maintains a **trust cache** — a built-in list of cdhash digests of Apple binaries. When a binary is about to execute, AMFI checks if its hash is in the trust cache. If it is, the binary is considered trusted and signature validation is skipped.
 
 **What KPF does**: It finds the trust cache lookup function and patches it to **always return 1** (trusted). This makes AMFI believe every binary on the system is in the trust cache, effectively disabling code signature validation.
 
 **How it finds it**: KPF searches for this AArch64 instruction pattern — the inner loop of the trustcache binary search:
 
 ```asm
-ADD  X9, X9, #0x18      ; entry size (24 bytes per hash entry)
-MOVZ W10, #0x16          ; constant used in address calculation
+ADD  X9, X9, #0x18      ; advance pointer by 0x18 (structure stride, includes padding/alignment)
+MOVZ W10, #0x16          ; 0x16 = 22 bytes (actual trust cache entry size: 20-byte cdhash + 2 bytes metadata)
 LSR  X11, X8, #1         ; divide index by 2 (binary search)
 MADD X12, X11, X10, X9   ; calculate entry address
 ```
+
+Note: the `#0x18` (24) in the ADD and the `#0x16` (22) in the MOVZ reflect different aspects of the trust cache structure — the stride for pointer arithmetic vs. the actual entry comparison size. This is consistent with trust cache v1 format where entries are 22 bytes but may be padded for alignment.
 
 In `xnu_pf_maskmatch` terms:
 
@@ -305,7 +307,12 @@ uint32_t count = &sandbox_shellcode_end - &sandbox_shellcode;
 // ... generates a match pattern of all zeros
 ```
 
-The actual shellcode is defined in `shellcode.S` — an AArch64 assembly file that implements the custom sandbox evaluation logic. It's linked into KPF and copied into the kernel at runtime.
+The actual shellcode is defined in `shellcode.S` — an AArch64 assembly file linked into KPF and copied into the kernel at runtime. Beyond the sandbox path check (which specifically filters `.fsevent` accesses), `shellcode.S` also contains:
+
+- **`amfi_execve_hook`**: Forces `CS_PLATFORM_BINARY` and `CS_VALID | CS_ADHOC | CS_GET_TASK_ALLOW | CS_INSTALLER` flags on all executing binaries while clearing restrictive flags like `CS_HARD`, `CS_KILL`, and `CS_ENFORCEMENT`. This prevents AMFI from killing jailbreak binaries at execve time.
+- **`pre_execve_hook`**: Properly handles setuid/setgid binaries — it calls `vnode_getattr` to read `va_uid`/`va_gid` and `va_mode`, then applies the appropriate UID/GID changes and sets `P_SUGID` on the process.
+- **`_dyld_hook_shellcode`**: Implements the custom dyld path logic — it checks if `/binpack/lib/dyld` exists (via `vnode_lookup`), and if so uses it; otherwise falls back to the default `/usr/lib/dyld`.
+- **`_nvram_shc`**: A small shellcode that converts `kOFVariablePermKernelOnly` (0x3) to `kOFVariablePermRootOnly` (0x0), allowing root-level access to NVRAM variables that are normally kernel-only.
 
 # What About the "Classic" Patches?
 
