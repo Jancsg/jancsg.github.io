@@ -10,27 +10,21 @@
   {% assign title = post.title %}
 {% endif %}
 
-{% if post.ribbon %}
-  {% assign ribbon = post.ribbon %}
-{% else %}
-  {% assign ribbon = 'darkgrey' %}
-{% endif %}
-
-<div class="post-blog-card" style="--ribbon: {{ ribbon }}; --image-url: url('{{ teaser | relative_url }}');">
-  <div class="post-meta">
-    <div class="post-ribbon"></div>
-    {% if post.categories[0] %}
-      <div class="post-ribbon4">{{ post.categories[0] }}</div>
+<div class="{{ include.type | default: 'list' }}__item">
+  <article class="archive__item" itemscope itemtype="https://schema.org/CreativeWork"{% if post.locale %} lang="{{ post.locale }}"{% endif %}>
+    {% if include.type == "grid" and teaser %}
+      <div class="archive__item-teaser">
+        <img src="{{ teaser | relative_url }}" alt="">
+      </div>
     {% endif %}
-  </div>
-  <div class="post-description">
-    <h1><a href="{{ post.url | relative_url }}">{{ title }}</a></h1>
-    <h2>{{ post.description | truncate: 120 }}</h2>
-    <p>
-      <span class="post-date">{{ post.date | date_to_string }}</span>
-      {% if post.read_time %}
-        <span class="post-time">{% include read-time.html %}</span>
+    <h2 class="archive__item-title no_toc" itemprop="headline">
+      {% if post.link %}
+        <a href="{{ post.link }}">{{ title }}</a> <a href="{{ post.url | relative_url }}" rel="permalink"><i class="fas fa-link" aria-hidden="true" title="permalink"></i><span class="sr-only">Permalink</span></a>
+      {% else %}
+        <a href="{{ post.url | relative_url }}" rel="permalink">{{ title }}</a>
       {% endif %}
-    </p>
-  </div>
+    </h2>
+    {% include page__meta.html type=include.type %}
+    {% if post.excerpt %}<p class="archive__item-excerpt" itemprop="description">{{ post.excerpt | markdownify | strip_html | truncate: 160 }}</p>{% endif %}
+  </article>
 </div>
