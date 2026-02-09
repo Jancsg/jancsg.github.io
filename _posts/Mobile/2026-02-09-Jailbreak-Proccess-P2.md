@@ -3,8 +3,8 @@ title: "Kernel Payloads & Patches - Breaking the Jail"
 date: 2026-02-09 00:00:00
 classes: wide
 header:
-  teaser: /assets/images/Jailbreak-Proccess-P1/1.jpg
-  overlay_image: /assets/images/Jailbreak-Proccess-P1/1.jpg
+  teaser: /assets/images/Jailbreak-Proccess-P2/1.jpg
+  overlay_image: /assets/images/Jailbreak-Proccess-P2/1.jpg
   overlay_filter: 0.5
 ribbon: DarkSlateGray
 excerpt: "What checkra1n's KPF actually patches — based on the real PongoOS source code"
