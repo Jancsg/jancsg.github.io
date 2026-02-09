@@ -12,7 +12,7 @@ layout: archive
   {% assign posts = site.posts %}
 {% endif %}
 
-<div class="entries-grid">
+<div class="entries-grid" style="display: flex; flex-direction: column; gap: 1rem;">
   {% for post in posts %}
     {% include archive-single.html %}
   {% endfor %}
