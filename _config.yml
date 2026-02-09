@@ -156,6 +156,7 @@ footer:
     - label: "LinkedIn"
       icon: "fab fa-fw fa-linkedin"
       url: "https://linkedin.com/in/jancsg/"
+  since: "2013"
 
 
 # Reading Files
@@ -181,6 +182,7 @@ exclude:
   - gulpfile.js
   - LICENSE
   - log
+  - minimal-mistakes-jekyll.gemspec
   - node_modules
   - package.json
   - package-lock.json
