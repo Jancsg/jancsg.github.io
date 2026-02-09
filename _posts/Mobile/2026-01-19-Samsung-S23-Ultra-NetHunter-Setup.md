@@ -1,6 +1,6 @@
 ---
 title: "Samsung S23 Ultra: The Ultimate NetHunter Setup (Android 14 Fixed)"
-date: 2026-02-08 00:00:00
+date: 2026-01-19 00:00:00
 classes: wide
 header:
   teaser: /assets/images/Samsung-S23-Ultra-NetHunter-Setup/1.jpg

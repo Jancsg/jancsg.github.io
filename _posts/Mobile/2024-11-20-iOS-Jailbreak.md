@@ -1,5 +1,5 @@
 ---
-title: "iOS Jailbreak"
+title: "Introduction to iOS Jailbreak"
 date: 2024-11-20 00:00:00
 classes: wide
 header:
