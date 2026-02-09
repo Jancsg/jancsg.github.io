@@ -10,3 +10,5 @@ main:
     url: /categories/#Pen-Testing
   - title: "All Tags"
     url: /tags
+  - title: "Media Kit"
+    url: /media-kit/
