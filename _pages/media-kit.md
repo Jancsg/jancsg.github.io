@@ -17,7 +17,7 @@ excerpt: "Lleva tu marca ante la próxima generación de profesionales en Cibers
 
 A diferencia de la mayoría de creadores tech, mi contenido viene respaldado por experiencia real en producción, no solo por tutoriales reciclados.
 
-*   **Senior Security Engineer @ Cisco ThousandEyes**
+*   **Senior Security Engineer (Product Security) @ Cisco ThousandEyes**
 *   **+12 años de experiencia en ciberseguridad**
 *   **Especialidades:** Digital Forensics, Mobile Security Research, Cloud-Native Security, Offensive Security, Threat Hunting, SOC Operations, Cyber Threat Intelligence.
 *   **Vulnerability Researcher & Bug Hunter**
