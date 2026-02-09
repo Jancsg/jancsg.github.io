@@ -16,7 +16,18 @@
   {% assign ribbon = 'darkgrey' %}
 {% endif %}
 
-<div class="post-blog-card" style="--ribbon: {{ ribbon }}; --image-url: url('{{ teaser | relative_url }}');">
+{% if teaser %}
+  {% if teaser contains 'http' %}
+    {% assign image_path = teaser %}
+  {% elsif teaser contains site.url %}
+    {% assign image_path = teaser %}
+  {% else %}
+    {% assign image_path = teaser | relative_url %}
+  {% endif %}
+{% else %}
+  {% assign image_path = '' %}
+{% endif %}
+<div class="post-blog-card" style="--ribbon: {{ ribbon }}; --image-url: url('{{ image_path }}');">
   <div class="post-meta">
     <div class="post-ribbon"></div>
     {% if post.categories[0] %}
